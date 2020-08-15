@@ -1,0 +1,20 @@
+const numbers = [65,8,389,23,84,44,9,0,13];
+
+function insertionSort(Array){
+  const length = Array.length;
+  for(let i=0;i<length;i++){
+    if(Array[i]<Array[0]){
+      Array.unshift(Array.splice(i,1)[0]);
+    }else{
+      if(Array[i]<Array[i-1]){
+        for(let j=1;j<i;j++){
+          if(Array[i]>=Array[j-1]&&Array[i]<Array[j]){
+            Array.splice(j,0,Array.splice(i,1)[0]);
+          }
+        }
+      }
+    }
+  }
+}
+insertionSort(numbers);
+console.log(numbers);
